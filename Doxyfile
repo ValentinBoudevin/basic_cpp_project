@@ -1,0 +1,13 @@
+# Doxyfile.in
+
+# Doxygen configuration file
+
+# Input files
+INPUT                  = /home/boudevin/Documents/basic_cpp_project/include/vpn_mosquitto
+
+# Output files
+OUTPUT_DIRECTORY       = /home/boudevin/Documents/basic_cpp_project/build/../docs
+
+# Output formats
+GENERATE_HTML          = YES
+GENERATE_LATEX         = NO

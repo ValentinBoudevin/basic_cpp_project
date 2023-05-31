@@ -1,0 +1,13 @@
+# Doxyfile.in
+
+# Doxygen configuration file
+
+# Input files
+INPUT                  = @PROJECT_SOURCE_DIR@/include/vpn_mosquitto
+
+# Output files
+OUTPUT_DIRECTORY       = @PROJECT_BINARY_DIR@/../docs
+
+# Output formats
+GENERATE_HTML          = YES
+GENERATE_LATEX         = NO
