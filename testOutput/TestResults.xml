@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites tests="1" failures="0" disabled="0" errors="0" time="0.002" timestamp="2023-05-31T11:56:03.962" name="AllTests">
+  <testsuite name="constructor_3" tests="1" failures="0" disabled="0" skipped="0" errors="0" time="0.002" timestamp="2023-05-31T11:56:03.962">
+    <testcase name="constructor_3_sucessed" status="run" result="completed" time="0.002" timestamp="2023-05-31T11:56:03.962" classname="constructor_3" />
+  </testsuite>
+</testsuites>
