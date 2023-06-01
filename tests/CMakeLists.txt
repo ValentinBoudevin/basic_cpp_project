@@ -27,6 +27,11 @@ target_link_libraries(vpn_mosquitto_test
   gcov)
 
 
+file(GLOB OLD_XML_FILES ${CMAKE_SOURCE_DIR}/TestResults/*.xml)
+foreach(XML_FILE ${OLD_XML_FILES})
+    file(REMOVE ${XML_FILE})
+endforeach()
+
 #Use of threads
 include(GoogleTest)
 gtest_discover_tests(vpn_mosquitto_test

@@ -37,7 +37,7 @@
           </tr>
           <tr>
             <td class="headerItem">Date:</td>
-            <td class="headerValue">2023-06-01 10:31:00</td>
+            <td class="headerValue">2023-06-01 10:42:32</td>
             <td></td>
             <td class="headerItem">Functions:</td>
             <td class="headerCovTableEntry">1</td>
@@ -915,15 +915,15 @@
 <a name="853"><span class="lineNum">     853 </span>            : </a>
 <a name="854"><span class="lineNum">     854 </span>            :    template&lt;typename _Tp, typename _Alloc&gt;</a>
 <a name="855"><span class="lineNum">     855 </span>            :      void</a>
-<a name="856"><span class="lineNum">     856 </span><span class="lineCov">         53 :      deque&lt;_Tp, _Alloc&gt;::</span></a>
+<a name="856"><span class="lineNum">     856 </span><span class="lineCov">         57 :      deque&lt;_Tp, _Alloc&gt;::</span></a>
 <a name="857"><span class="lineNum">     857 </span>            :      _M_destroy_data_aux(iterator __first, iterator __last)</a>
 <a name="858"><span class="lineNum">     858 </span>            :      {</a>
-<a name="859"><span class="lineNum">     859 </span><span class="lineCov">         53 :        for (_Map_pointer __node = __first._M_node + 1;</span></a>
-<a name="860"><span class="lineNum">     860 </span><span class="lineCov">         53 :             __node &lt; __last._M_node; ++__node)</span></a>
+<a name="859"><span class="lineNum">     859 </span><span class="lineCov">         57 :        for (_Map_pointer __node = __first._M_node + 1;</span></a>
+<a name="860"><span class="lineNum">     860 </span><span class="lineCov">         57 :             __node &lt; __last._M_node; ++__node)</span></a>
 <a name="861"><span class="lineNum">     861 </span><span class="lineNoCov">          0 :          std::_Destroy(*__node, *__node + _S_buffer_size(),</span></a>
 <a name="862"><span class="lineNum">     862 </span><span class="lineNoCov">          0 :                        _M_get_Tp_allocator());</span></a>
 <a name="863"><span class="lineNum">     863 </span>            : </a>
-<a name="864"><span class="lineNum">     864 </span><span class="lineCov">         53 :        if (__first._M_node != __last._M_node)</span></a>
+<a name="864"><span class="lineNum">     864 </span><span class="lineCov">         57 :        if (__first._M_node != __last._M_node)</span></a>
 <a name="865"><span class="lineNum">     865 </span>            :          {</a>
 <a name="866"><span class="lineNum">     866 </span><span class="lineNoCov">          0 :            std::_Destroy(__first._M_cur, __first._M_last,</span></a>
 <a name="867"><span class="lineNum">     867 </span><span class="lineNoCov">          0 :                          _M_get_Tp_allocator());</span></a>
@@ -931,9 +931,9 @@
 <a name="869"><span class="lineNum">     869 </span><span class="lineNoCov">          0 :                          _M_get_Tp_allocator());</span></a>
 <a name="870"><span class="lineNum">     870 </span>            :          }</a>
 <a name="871"><span class="lineNum">     871 </span>            :        else</a>
-<a name="872"><span class="lineNum">     872 </span><span class="lineCov">         53 :          std::_Destroy(__first._M_cur, __last._M_cur,</span></a>
-<a name="873"><span class="lineNum">     873 </span><span class="lineCov">         53 :                        _M_get_Tp_allocator());</span></a>
-<a name="874"><span class="lineNum">     874 </span><span class="lineCov">         53 :      }</span></a>
+<a name="872"><span class="lineNum">     872 </span><span class="lineCov">         57 :          std::_Destroy(__first._M_cur, __last._M_cur,</span></a>
+<a name="873"><span class="lineNum">     873 </span><span class="lineCov">         57 :                        _M_get_Tp_allocator());</span></a>
+<a name="874"><span class="lineNum">     874 </span><span class="lineCov">         57 :      }</span></a>
 <a name="875"><span class="lineNum">     875 </span>            : </a>
 <a name="876"><span class="lineNum">     876 </span>            :   template &lt;typename _Tp, typename _Alloc&gt;</a>
 <a name="877"><span class="lineNum">     877 </span>            :     void</a>

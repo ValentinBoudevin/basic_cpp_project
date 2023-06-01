@@ -37,7 +37,7 @@
           </tr>
           <tr>
             <td class="headerItem">Date:</td>
-            <td class="headerValue">2023-06-01 10:31:00</td>
+            <td class="headerValue">2023-06-01 10:42:32</td>
             <td></td>
             <td class="headerItem">Functions:</td>
             <td class="headerCovTableEntry">12</td>
@@ -168,66 +168,66 @@
 <a name="106"><span class="lineNum">     106 </span><span class="lineNoCov">          0 :     this-&gt;is_connected = true;</span></a>
 <a name="107"><span class="lineNum">     107 </span><span class="lineNoCov">          0 : }</span></a>
 <a name="108"><span class="lineNum">     108 </span>            : </a>
-<a name="109"><span class="lineNum">     109 </span><span class="lineCov">         38 : MosquittoVPN::MosquittoVPN(const char* host,int port,const char* username,const char* password){</span></a>
-<a name="110"><span class="lineNum">     110 </span><span class="lineCov">         38 :     std::lock_guard&lt;std::mutex&gt; lock(this-&gt;mosq_mutex);</span></a>
-<a name="111"><span class="lineNum">     111 </span><span class="lineCov">         38 :     this-&gt;host = host;</span></a>
-<a name="112"><span class="lineNum">     112 </span><span class="lineCov">         38 :     this-&gt;username = username;</span></a>
-<a name="113"><span class="lineNum">     113 </span><span class="lineCov">         38 :     this-&gt;password = password;</span></a>
-<a name="114"><span class="lineNum">     114 </span><span class="lineCov">         38 :     mosquitto_lib_init();</span></a>
-<a name="115"><span class="lineNum">     115 </span><span class="lineCov">         38 :     this-&gt;mosq = mosquitto_new(NULL, true, NULL);</span></a>
+<a name="109"><span class="lineNum">     109 </span><span class="lineCov">         42 : MosquittoVPN::MosquittoVPN(const char* host,int port,const char* username,const char* password){</span></a>
+<a name="110"><span class="lineNum">     110 </span><span class="lineCov">         42 :     std::lock_guard&lt;std::mutex&gt; lock(this-&gt;mosq_mutex);</span></a>
+<a name="111"><span class="lineNum">     111 </span><span class="lineCov">         42 :     this-&gt;host = host;</span></a>
+<a name="112"><span class="lineNum">     112 </span><span class="lineCov">         42 :     this-&gt;username = username;</span></a>
+<a name="113"><span class="lineNum">     113 </span><span class="lineCov">         42 :     this-&gt;password = password;</span></a>
+<a name="114"><span class="lineNum">     114 </span><span class="lineCov">         42 :     mosquitto_lib_init();</span></a>
+<a name="115"><span class="lineNum">     115 </span><span class="lineCov">         42 :     this-&gt;mosq = mosquitto_new(NULL, true, NULL);</span></a>
 <a name="116"><span class="lineNum">     116 </span>            : </a>
-<a name="117"><span class="lineNum">     117 </span><span class="lineCov">         38 :     int result = 0;</span></a>
+<a name="117"><span class="lineNum">     117 </span><span class="lineCov">         42 :     int result = 0;</span></a>
 <a name="118"><span class="lineNum">     118 </span>            : </a>
-<a name="119"><span class="lineNum">     119 </span><span class="lineCov">         38 :     if (!mosq) {</span></a>
+<a name="119"><span class="lineNum">     119 </span><span class="lineCov">         42 :     if (!mosq) {</span></a>
 <a name="120"><span class="lineNum">     120 </span><span class="lineNoCov">          0 :         throw std::runtime_error(&quot;Error function : mosquitto_new | Wans't able to create a new moquitto instance&quot; );</span></a>
 <a name="121"><span class="lineNum">     121 </span>            :     }</a>
 <a name="122"><span class="lineNum">     122 </span>            : </a>
-<a name="123"><span class="lineNum">     123 </span><span class="lineCov">         38 :     result = mosquitto_username_pw_set(this-&gt;mosq, this-&gt;username, this-&gt;password);</span></a>
-<a name="124"><span class="lineNum">     124 </span><span class="lineCov">         38 :     if (result != MOSQ_ERR_SUCCESS) {</span></a>
+<a name="123"><span class="lineNum">     123 </span><span class="lineCov">         42 :     result = mosquitto_username_pw_set(this-&gt;mosq, this-&gt;username, this-&gt;password);</span></a>
+<a name="124"><span class="lineNum">     124 </span><span class="lineCov">         42 :     if (result != MOSQ_ERR_SUCCESS) {</span></a>
 <a name="125"><span class="lineNum">     125 </span><span class="lineNoCov">          0 :         this-&gt;~MosquittoVPN();</span></a>
 <a name="126"><span class="lineNum">     126 </span><span class="lineNoCov">          0 :         throw std::runtime_error(&quot;Error function : mosquitto_username_pw_set | Code : &quot; + result);</span></a>
 <a name="127"><span class="lineNum">     127 </span>            :     }</a>
 <a name="128"><span class="lineNum">     128 </span>            : </a>
-<a name="129"><span class="lineNum">     129 </span><span class="lineCov">         38 :     result = this-&gt;mosquitto_tls_set(this-&gt;mosq, NULL, &quot;/etc/ssl/certs/&quot;, NULL, NULL, NULL);</span></a>
-<a name="130"><span class="lineNum">     130 </span><span class="lineCov">         38 :     if( result != MOSQ_ERR_SUCCESS){</span></a>
+<a name="129"><span class="lineNum">     129 </span><span class="lineCov">         42 :     result = this-&gt;mosquitto_tls_set(this-&gt;mosq, NULL, &quot;/etc/ssl/certs/&quot;, NULL, NULL, NULL);</span></a>
+<a name="130"><span class="lineNum">     130 </span><span class="lineCov">         42 :     if( result != MOSQ_ERR_SUCCESS){</span></a>
 <a name="131"><span class="lineNum">     131 </span><span class="lineNoCov">          0 :         this-&gt;~MosquittoVPN();</span></a>
 <a name="132"><span class="lineNum">     132 </span><span class="lineNoCov">          0 :         throw std::runtime_error(&quot;Error function : mosquitto_tls_set | Code : &quot; + result);</span></a>
 <a name="133"><span class="lineNum">     133 </span>            :     }</a>
 <a name="134"><span class="lineNum">     134 </span>            : </a>
-<a name="135"><span class="lineNum">     135 </span><span class="lineCov">         38 :     result = this-&gt;mosquitto_tls_opts_set(this-&gt;mosq, 1, &quot;tlsv1.2&quot;, NULL);</span></a>
-<a name="136"><span class="lineNum">     136 </span><span class="lineCov">         38 :     if( result != MOSQ_ERR_SUCCESS){</span></a>
+<a name="135"><span class="lineNum">     135 </span><span class="lineCov">         42 :     result = this-&gt;mosquitto_tls_opts_set(this-&gt;mosq, 1, &quot;tlsv1.2&quot;, NULL);</span></a>
+<a name="136"><span class="lineNum">     136 </span><span class="lineCov">         42 :     if( result != MOSQ_ERR_SUCCESS){</span></a>
 <a name="137"><span class="lineNum">     137 </span><span class="lineNoCov">          0 :         this-&gt;~MosquittoVPN();</span></a>
 <a name="138"><span class="lineNum">     138 </span><span class="lineNoCov">          0 :         throw std::runtime_error(&quot;Error function : mosquitto_tls_opts_set | Code : &quot; + result);</span></a>
 <a name="139"><span class="lineNum">     139 </span>            :     }</a>
 <a name="140"><span class="lineNum">     140 </span>            : </a>
-<a name="141"><span class="lineNum">     141 </span><span class="lineCov">         38 :     mosquitto_connect_callback_set(this-&gt;mosq, MosquittoVPN::on_connect);</span></a>
+<a name="141"><span class="lineNum">     141 </span><span class="lineCov">         42 :     mosquitto_connect_callback_set(this-&gt;mosq, MosquittoVPN::on_connect);</span></a>
 <a name="142"><span class="lineNum">     142 </span>            :     //mosquitto_message_callback_set(this-&gt;mosq, MosquittoVPN::on_message);</a>
-<a name="143"><span class="lineNum">     143 </span><span class="lineCov">         38 :     mosquitto_message_callback_set(this-&gt;mosq, MosquittoVPN::on_message);</span></a>
+<a name="143"><span class="lineNum">     143 </span><span class="lineCov">         42 :     mosquitto_message_callback_set(this-&gt;mosq, MosquittoVPN::on_message);</span></a>
 <a name="144"><span class="lineNum">     144 </span>            : </a>
-<a name="145"><span class="lineNum">     145 </span><span class="lineCov">         38 :     result = this-&gt;mosquitto_connect_async(this-&gt;mosq, this-&gt;host, port, 60);</span></a>
-<a name="146"><span class="lineNum">     146 </span><span class="lineCov">         38 :     if (result != MOSQ_ERR_SUCCESS) {</span></a>
+<a name="145"><span class="lineNum">     145 </span><span class="lineCov">         42 :     result = this-&gt;mosquitto_connect_async(this-&gt;mosq, this-&gt;host, port, 60);</span></a>
+<a name="146"><span class="lineNum">     146 </span><span class="lineCov">         42 :     if (result != MOSQ_ERR_SUCCESS) {</span></a>
 <a name="147"><span class="lineNum">     147 </span><span class="lineNoCov">          0 :         this-&gt;~MosquittoVPN();</span></a>
 <a name="148"><span class="lineNum">     148 </span><span class="lineNoCov">          0 :         throw std::runtime_error(&quot;Error function : mosquitto_connect_async | Code : &quot; + result);</span></a>
 <a name="149"><span class="lineNum">     149 </span>            :     }</a>
 <a name="150"><span class="lineNum">     150 </span>            : </a>
-<a name="151"><span class="lineNum">     151 </span><span class="lineCov">         38 :     mosquitto_loop_start(mosq);</span></a>
+<a name="151"><span class="lineNum">     151 </span><span class="lineCov">         42 :     mosquitto_loop_start(mosq);</span></a>
 <a name="152"><span class="lineNum">     152 </span>            : </a>
-<a name="153"><span class="lineNum">     153 </span><span class="lineCov">         38 :     time_t start_time = time(NULL);</span></a>
-<a name="154"><span class="lineNum">     154 </span><span class="lineCov">         38 :     bool configured = false;</span></a>
-<a name="155"><span class="lineNum">     155 </span><span class="lineCov">         38 :     while (difftime(time(NULL), start_time) &lt; 3) {</span></a>
-<a name="156"><span class="lineNum">     156 </span><span class="lineCov">         38 :         if (mosquitto_want_write(mosq)) {</span></a>
-<a name="157"><span class="lineNum">     157 </span><span class="lineCov">         38 :             std::cout &lt;&lt; &quot;Success : Broker Correctly configured&quot; &lt;&lt; std::endl;</span></a>
-<a name="158"><span class="lineNum">     158 </span><span class="lineCov">         38 :             configured = true;</span></a>
-<a name="159"><span class="lineNum">     159 </span><span class="lineCov">         38 :             break;</span></a>
+<a name="153"><span class="lineNum">     153 </span><span class="lineCov">         42 :     time_t start_time = time(NULL);</span></a>
+<a name="154"><span class="lineNum">     154 </span><span class="lineCov">         42 :     bool configured = false;</span></a>
+<a name="155"><span class="lineNum">     155 </span><span class="lineCov">         42 :     while (difftime(time(NULL), start_time) &lt; 3) {</span></a>
+<a name="156"><span class="lineNum">     156 </span><span class="lineCov">         42 :         if (mosquitto_want_write(mosq)) {</span></a>
+<a name="157"><span class="lineNum">     157 </span><span class="lineCov">         42 :             std::cout &lt;&lt; &quot;Success : Broker Correctly configured&quot; &lt;&lt; std::endl;</span></a>
+<a name="158"><span class="lineNum">     158 </span><span class="lineCov">         42 :             configured = true;</span></a>
+<a name="159"><span class="lineNum">     159 </span><span class="lineCov">         42 :             break;</span></a>
 <a name="160"><span class="lineNum">     160 </span>            :         }</a>
 <a name="161"><span class="lineNum">     161 </span>            :     }</a>
-<a name="162"><span class="lineNum">     162 </span><span class="lineCov">         38 :     if(!configured){</span></a>
+<a name="162"><span class="lineNum">     162 </span><span class="lineCov">         42 :     if(!configured){</span></a>
 <a name="163"><span class="lineNum">     163 </span><span class="lineNoCov">          0 :         throw std::runtime_error(&quot;Error : Broker doesn't respond&quot;);</span></a>
 <a name="164"><span class="lineNum">     164 </span>            :     }</a>
 <a name="165"><span class="lineNum">     165 </span>            : </a>
-<a name="166"><span class="lineNum">     166 </span><span class="lineCov">         38 :     topic_susbribed = {};</span></a>
-<a name="167"><span class="lineNum">     167 </span><span class="lineCov">         38 :     this-&gt;is_connected = true;</span></a>
-<a name="168"><span class="lineNum">     168 </span><span class="lineCov">         38 : }</span></a>
+<a name="166"><span class="lineNum">     166 </span><span class="lineCov">         42 :     topic_susbribed = {};</span></a>
+<a name="167"><span class="lineNum">     167 </span><span class="lineCov">         42 :     this-&gt;is_connected = true;</span></a>
+<a name="168"><span class="lineNum">     168 </span><span class="lineCov">         42 : }</span></a>
 <a name="169"><span class="lineNum">     169 </span>            : </a>
 <a name="170"><span class="lineNum">     170 </span>            : /////////////////////////// - DESTRUCTORS - ///////////////////////////</a>
 <a name="171"><span class="lineNum">     171 </span>            : </a>
@@ -381,8 +381,8 @@
 <a name="319"><span class="lineNum">     319 </span><span class="lineCov">          1 :     return this-&gt;mosq;</span></a>
 <a name="320"><span class="lineNum">     320 </span>            : }</a>
 <a name="321"><span class="lineNum">     321 </span>            : </a>
-<a name="322"><span class="lineNum">     322 </span><span class="lineCov">         33 : const char* MosquittoVPN::get_username(){</span></a>
-<a name="323"><span class="lineNum">     323 </span><span class="lineCov">         33 :     return this-&gt;username;</span></a>
+<a name="322"><span class="lineNum">     322 </span><span class="lineCov">         37 : const char* MosquittoVPN::get_username(){</span></a>
+<a name="323"><span class="lineNum">     323 </span><span class="lineCov">         37 :     return this-&gt;username;</span></a>
 <a name="324"><span class="lineNum">     324 </span>            : }</a>
 <a name="325"><span class="lineNum">     325 </span>            : </a>
 <a name="326"><span class="lineNum">     326 </span><span class="lineCov">          2 : const char* MosquittoVPN::get_password(){</span></a>
@@ -394,20 +394,20 @@
 <a name="332"><span class="lineNum">     332 </span>            : }</a>
 <a name="333"><span class="lineNum">     333 </span>            : /////////////////////////// - REIMPLEMENT MOSQUITTO LIBRARY FUNCTION IN CLASS - ///////////////////////////</a>
 <a name="334"><span class="lineNum">     334 </span>            : </a>
-<a name="335"><span class="lineNum">     335 </span><span class="lineCov">         40 : int MosquittoVPN::mosquitto_username_pw_set(mosquitto *mosq, const char *username, const char *password){</span></a>
-<a name="336"><span class="lineNum">     336 </span><span class="lineCov">         40 :     return ::mosquitto_username_pw_set(mosq,username,password);</span></a>
+<a name="335"><span class="lineNum">     335 </span><span class="lineCov">         44 : int MosquittoVPN::mosquitto_username_pw_set(mosquitto *mosq, const char *username, const char *password){</span></a>
+<a name="336"><span class="lineNum">     336 </span><span class="lineCov">         44 :     return ::mosquitto_username_pw_set(mosq,username,password);</span></a>
 <a name="337"><span class="lineNum">     337 </span>            : }</a>
 <a name="338"><span class="lineNum">     338 </span>            : </a>
-<a name="339"><span class="lineNum">     339 </span><span class="lineCov">         38 : int MosquittoVPN::mosquitto_tls_set(mosquitto *mosq, const char *cafile, const char *capath, const char *certfile, const char *keyfile, int (*pw_callback)(char *buf, int size, int rwflag, void *userdata)){</span></a>
-<a name="340"><span class="lineNum">     340 </span><span class="lineCov">         38 :     return ::mosquitto_tls_set(mosq,cafile, capath, certfile, keyfile, pw_callback);</span></a>
+<a name="339"><span class="lineNum">     339 </span><span class="lineCov">         42 : int MosquittoVPN::mosquitto_tls_set(mosquitto *mosq, const char *cafile, const char *capath, const char *certfile, const char *keyfile, int (*pw_callback)(char *buf, int size, int rwflag, void *userdata)){</span></a>
+<a name="340"><span class="lineNum">     340 </span><span class="lineCov">         42 :     return ::mosquitto_tls_set(mosq,cafile, capath, certfile, keyfile, pw_callback);</span></a>
 <a name="341"><span class="lineNum">     341 </span>            : }</a>
 <a name="342"><span class="lineNum">     342 </span>            : </a>
-<a name="343"><span class="lineNum">     343 </span><span class="lineCov">         38 : int MosquittoVPN::mosquitto_tls_opts_set(mosquitto *mosq, int cert_reqs, const char *tls_version, const char *ciphers){</span></a>
-<a name="344"><span class="lineNum">     344 </span><span class="lineCov">         38 :     return ::mosquitto_tls_opts_set(mosq, cert_reqs, tls_version, ciphers);</span></a>
+<a name="343"><span class="lineNum">     343 </span><span class="lineCov">         42 : int MosquittoVPN::mosquitto_tls_opts_set(mosquitto *mosq, int cert_reqs, const char *tls_version, const char *ciphers){</span></a>
+<a name="344"><span class="lineNum">     344 </span><span class="lineCov">         42 :     return ::mosquitto_tls_opts_set(mosq, cert_reqs, tls_version, ciphers);</span></a>
 <a name="345"><span class="lineNum">     345 </span>            : }</a>
 <a name="346"><span class="lineNum">     346 </span>            : </a>
-<a name="347"><span class="lineNum">     347 </span><span class="lineCov">         40 : int MosquittoVPN::mosquitto_connect_async(mosquitto *mosq, const char *host, int port, int keepalive){</span></a>
-<a name="348"><span class="lineNum">     348 </span><span class="lineCov">         40 :     return ::mosquitto_connect_async(mosq, host, port, keepalive);</span></a>
+<a name="347"><span class="lineNum">     347 </span><span class="lineCov">         44 : int MosquittoVPN::mosquitto_connect_async(mosquitto *mosq, const char *host, int port, int keepalive){</span></a>
+<a name="348"><span class="lineNum">     348 </span><span class="lineCov">         44 :     return ::mosquitto_connect_async(mosq, host, port, keepalive);</span></a>
 <a name="349"><span class="lineNum">     349 </span>            : }</a>
 </pre>
       </td>
