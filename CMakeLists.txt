@@ -61,11 +61,11 @@ add_custom_target(coverage
     COMMAND lcov --remove ${CMAKE_BINARY_DIR}/coverage.info "/10/*" -o ${CMAKE_BINARY_DIR}/coverage.info
     
     # Generate the coverage report using genhtml
-    COMMAND mkdir -p ${CMAKE_BINARY_DIR}/coverage_html
-    COMMAND genhtml ${CMAKE_BINARY_DIR}/coverage.info --output-directory ${CMAKE_BINARY_DIR}/coverage_html
+    COMMAND mkdir -p ${CMAKE_SOURCE_DIR}/coverage_html
+    COMMAND genhtml ${CMAKE_BINARY_DIR}/coverage.info --output-directory ${CMAKE_SOURCE_DIR}/coverage_html
 
     # Output some statistics
-    COMMAND echo "Coverage report generated at: file://${CMAKE_BINARY_DIR}/coverage_html/index.html"
+    COMMAND echo "Coverage report generated at: file://${CMAKE_SOURCE_DIR}/coverage_html/index.html"
 )
 
 #Generate datasheet

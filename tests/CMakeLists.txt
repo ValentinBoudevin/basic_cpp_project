@@ -2,9 +2,10 @@ include(FetchContent)
 FetchContent_Declare(
   googletest
   GIT_REPOSITORY https://github.com/google/googletest.git
-  GIT_TAG        release-1.11.0
+  GIT_TAG        release-1.12.0
 )
 FetchContent_MakeAvailable(googletest)
+
 add_library(GTest::GTest INTERFACE IMPORTED)
 target_link_libraries(GTest::GTest INTERFACE gtest_main)
 
@@ -25,9 +26,9 @@ target_link_libraries(vpn_mosquitto_test
   vpn_mosquitto
   gcov)
 
+
 #Use of threads
 include(GoogleTest)
 gtest_discover_tests(vpn_mosquitto_test
-  PROPERTIES
-  XML_OUTPUT_DIR "${CMAKE_BINARY_DIR}/TestResults"
-  XML_OUTPUT_NAME "TestResults.xml")
+EXTRA_ARGS "--gtest_output=xml:${CMAKE_SOURCE_DIR}/TestResults/"
+)
