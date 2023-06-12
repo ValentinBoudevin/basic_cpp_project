@@ -15,6 +15,7 @@ cmake -S "${PROJECT_DIR}" \
 cmake --build ${BUILD_DIR} -j4
 # Run tests
 cd ${BUILD_DIR}
-GTEST_COLOR=1 ctest --verbose
+#GTEST_COLOR=1 ctest --verbose
+${BUILD_DIR}/tests/vpn_mosquitto_test --gtest_output=xml:../TestResults/
 
 cmake --build ${BUILD_DIR} --target coverage

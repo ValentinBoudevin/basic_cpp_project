@@ -37,7 +37,7 @@
           </tr>
           <tr>
             <td class="headerItem">Date:</td>
-            <td class="headerValue">2023-06-01 10:42:32</td>
+            <td class="headerValue">2023-06-12 11:18:16</td>
             <td></td>
             <td class="headerItem">Functions:</td>
             <td class="headerCovTableEntry">2</td>
@@ -359,13 +359,13 @@
 <a name="297"><span class="lineNum">     297 </span>            :   template&lt;typename _Tp, typename _Alloc&gt;</a>
 <a name="298"><span class="lineNum">     298 </span>            :     template&lt;typename _ForwardIterator&gt;</a>
 <a name="299"><span class="lineNum">     299 </span>            :       void</a>
-<a name="300"><span class="lineNum">     300 </span><span class="lineCov">         42 :       vector&lt;_Tp, _Alloc&gt;::</span></a>
+<a name="300"><span class="lineNum">     300 </span><span class="lineCov">         69 :       vector&lt;_Tp, _Alloc&gt;::</span></a>
 <a name="301"><span class="lineNum">     301 </span>            :       _M_assign_aux(_ForwardIterator __first, _ForwardIterator __last,</a>
 <a name="302"><span class="lineNum">     302 </span>            :                     std::forward_iterator_tag)</a>
 <a name="303"><span class="lineNum">     303 </span>            :       {</a>
-<a name="304"><span class="lineNum">     304 </span><span class="lineCov">         42 :         const size_type __len = std::distance(__first, __last);</span></a>
+<a name="304"><span class="lineNum">     304 </span><span class="lineCov">         69 :         const size_type __len = std::distance(__first, __last);</span></a>
 <a name="305"><span class="lineNum">     305 </span>            : </a>
-<a name="306"><span class="lineNum">     306 </span><span class="lineCov">         42 :         if (__len &gt; capacity())</span></a>
+<a name="306"><span class="lineNum">     306 </span><span class="lineCov">         69 :         if (__len &gt; capacity())</span></a>
 <a name="307"><span class="lineNum">     307 </span>            :           {</a>
 <a name="308"><span class="lineNum">     308 </span><span class="lineNoCov">          0 :             _S_check_init_len(__len, _M_get_Tp_allocator());</span></a>
 <a name="309"><span class="lineNum">     309 </span><span class="lineNoCov">          0 :             pointer __tmp(_M_allocate_and_copy(__len, __first, __last));</span></a>
@@ -379,8 +379,8 @@
 <a name="317"><span class="lineNum">     317 </span><span class="lineNoCov">          0 :             this-&gt;_M_impl._M_finish = this-&gt;_M_impl._M_start + __len;</span></a>
 <a name="318"><span class="lineNum">     318 </span><span class="lineNoCov">          0 :             this-&gt;_M_impl._M_end_of_storage = this-&gt;_M_impl._M_finish;</span></a>
 <a name="319"><span class="lineNum">     319 </span>            :           }</a>
-<a name="320"><span class="lineNum">     320 </span><span class="lineCov">         42 :         else if (size() &gt;= __len)</span></a>
-<a name="321"><span class="lineNum">     321 </span><span class="lineCov">         42 :           _M_erase_at_end(std::copy(__first, __last, this-&gt;_M_impl._M_start));</span></a>
+<a name="320"><span class="lineNum">     320 </span><span class="lineCov">         69 :         else if (size() &gt;= __len)</span></a>
+<a name="321"><span class="lineNum">     321 </span><span class="lineCov">         69 :           _M_erase_at_end(std::copy(__first, __last, this-&gt;_M_impl._M_start));</span></a>
 <a name="322"><span class="lineNum">     322 </span>            :         else</a>
 <a name="323"><span class="lineNum">     323 </span>            :           {</a>
 <a name="324"><span class="lineNum">     324 </span><span class="lineNoCov">          0 :             _ForwardIterator __mid = __first;</span></a>
@@ -394,7 +394,7 @@
 <a name="332"><span class="lineNum">     332 </span><span class="lineNoCov">          0 :                                           _M_get_Tp_allocator());</span></a>
 <a name="333"><span class="lineNum">     333 </span>            :             _GLIBCXX_ASAN_ANNOTATE_GREW(__n);</a>
 <a name="334"><span class="lineNum">     334 </span>            :           }</a>
-<a name="335"><span class="lineNum">     335 </span><span class="lineCov">         42 :       }</span></a>
+<a name="335"><span class="lineNum">     335 </span><span class="lineCov">         69 :       }</span></a>
 <a name="336"><span class="lineNum">     336 </span>            : </a>
 <a name="337"><span class="lineNum">     337 </span>            : #if __cplusplus &gt;= 201103L</a>
 <a name="338"><span class="lineNum">     338 </span>            :   template&lt;typename _Tp, typename _Alloc&gt;</a>

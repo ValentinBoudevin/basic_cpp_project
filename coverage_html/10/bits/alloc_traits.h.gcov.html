@@ -37,7 +37,7 @@
           </tr>
           <tr>
             <td class="headerItem">Date:</td>
-            <td class="headerValue">2023-06-01 10:42:32</td>
+            <td class="headerValue">2023-06-12 11:18:16</td>
             <td></td>
             <td class="headerItem">Functions:</td>
             <td class="headerCovTableEntry">10</td>
@@ -518,8 +518,8 @@
 <a name="456"><span class="lineNum">     456 </span>            :        *  Calls @c a.allocate(n)</a>
 <a name="457"><span class="lineNum">     457 </span>            :       */</a>
 <a name="458"><span class="lineNum">     458 </span>            :       _GLIBCXX_NODISCARD static _GLIBCXX20_CONSTEXPR pointer</a>
-<a name="459"><span class="lineNum">     459 </span><span class="lineCov">        116 :       allocate(allocator_type&amp; __a, size_type __n)</span></a>
-<a name="460"><span class="lineNum">     460 </span><span class="lineCov">        116 :       { return __a.allocate(__n); }</span></a>
+<a name="459"><span class="lineNum">     459 </span><span class="lineCov">        186 :       allocate(allocator_type&amp; __a, size_type __n)</span></a>
+<a name="460"><span class="lineNum">     460 </span><span class="lineCov">        186 :       { return __a.allocate(__n); }</span></a>
 <a name="461"><span class="lineNum">     461 </span>            : </a>
 <a name="462"><span class="lineNum">     462 </span>            :       /**</a>
 <a name="463"><span class="lineNum">     463 </span>            :        *  @brief  Allocate memory.</a>
@@ -550,8 +550,8 @@
 <a name="488"><span class="lineNum">     488 </span>            :        *  Calls &lt;tt&gt; a.deallocate(p, n) &lt;/tt&gt;</a>
 <a name="489"><span class="lineNum">     489 </span>            :       */</a>
 <a name="490"><span class="lineNum">     490 </span>            :       static _GLIBCXX20_CONSTEXPR void</a>
-<a name="491"><span class="lineNum">     491 </span><span class="lineCov">        114 :       deallocate(allocator_type&amp; __a, pointer __p, size_type __n)</span></a>
-<a name="492"><span class="lineNum">     492 </span><span class="lineCov">        114 :       { __a.deallocate(__p, __n); }</span></a>
+<a name="491"><span class="lineNum">     491 </span><span class="lineCov">        184 :       deallocate(allocator_type&amp; __a, pointer __p, size_type __n)</span></a>
+<a name="492"><span class="lineNum">     492 </span><span class="lineCov">        184 :       { __a.deallocate(__p, __n); }</span></a>
 <a name="493"><span class="lineNum">     493 </span>            : </a>
 <a name="494"><span class="lineNum">     494 </span>            :       /**</a>
 <a name="495"><span class="lineNum">     495 </span>            :        *  @brief  Construct an object of type `_Up`</a>
@@ -794,11 +794,11 @@
 <a name="732"><span class="lineNum">     732 </span>            : </a>
 <a name="733"><span class="lineNum">     733 </span>            :   template&lt;typename _ForwardIterator, typename _Tp&gt;</a>
 <a name="734"><span class="lineNum">     734 </span>            :     inline void</a>
-<a name="735"><span class="lineNum">     735 </span><span class="lineCov">        113 :     _Destroy(_ForwardIterator __first, _ForwardIterator __last,</span></a>
+<a name="735"><span class="lineNum">     735 </span><span class="lineCov">        183 :     _Destroy(_ForwardIterator __first, _ForwardIterator __last,</span></a>
 <a name="736"><span class="lineNum">     736 </span>            :              allocator&lt;_Tp&gt;&amp;)</a>
 <a name="737"><span class="lineNum">     737 </span>            :     {</a>
-<a name="738"><span class="lineNum">     738 </span><span class="lineCov">        113 :       _Destroy(__first, __last);</span></a>
-<a name="739"><span class="lineNum">     739 </span><span class="lineCov">        113 :     }</span></a>
+<a name="738"><span class="lineNum">     738 </span><span class="lineCov">        183 :       _Destroy(__first, __last);</span></a>
+<a name="739"><span class="lineNum">     739 </span><span class="lineCov">        183 :     }</span></a>
 <a name="740"><span class="lineNum">     740 </span>            : </a>
 <a name="741"><span class="lineNum">     741 </span>            : _GLIBCXX_END_NAMESPACE_VERSION</a>
 <a name="742"><span class="lineNum">     742 </span>            : } // namespace std</a>
